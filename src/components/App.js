@@ -56,6 +56,12 @@ function App() {
               render={props => <ViewPrompt {...props} />}
             />
 
+            <Route
+              path="/createprompt/:id"
+              exact
+              render={props => <CreatePrompt {...props} />}
+            />
+
             <Route component={NotFound404} />
           </Switch>
         </div>
