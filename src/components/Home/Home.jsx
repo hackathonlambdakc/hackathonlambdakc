@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState} from 'react'
 import PromptCard from '../Misc/PromptCard';
 import Header from "../Misc/Header";
 import "./home.css"
@@ -17,13 +17,45 @@ import "./home.css"
 
 
 const Home = () => {
-  return (
+
+  const randomPrompts = [
+    { title:'How was your day?', response:"pretty damn good. "},
+    { title:'Where is my diet dr. pepper?', response:"wish i knew"},
+    { title:'how late will we be up?', response:"sleep is not a thing. "},
+    { title:'what do you think of redux', response:"redux can suck it..."},
+  
+  ]
+
+  const [togglemodal, setTogglemodal] = useState(true)
+
+  const modalpopup = () =>{
+    setTogglemodal(!togglemodal)
+  }
+
+  return togglemodal ? (
     <div>
-      Home component
+      <div onClick={setTogglemodal = !togglemodal}>toggle off</div>
+      Home component on
       {/* Mobile First */}
       <Header />
       <div className="community-prompts">
-        <PromptCard />
+        {randomPrompts.map(prompt=>(
+          <PromptCard prompt={prompt}/>
+        ))}
+        
+      </div>
+    </div>
+  ) : (
+    <div>
+      <div onClick={!setTogglemodal}>toggle on</div>
+      Home component off
+      {/* Mobile First */}
+      <Header />
+      <div className="community-prompts">
+        {randomPrompts.map(prompt=>(
+          <PromptCard prompt={prompt}/>
+        ))}
+        
       </div>
     </div>
   )
