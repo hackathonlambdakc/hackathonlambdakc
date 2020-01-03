@@ -55,7 +55,7 @@ function App() {
             />
 
             <Route
-              path="/createprompt/:id"
+              path="/createprompt"
               exact
               render={props => <CreatePrompt {...props} />}
             />

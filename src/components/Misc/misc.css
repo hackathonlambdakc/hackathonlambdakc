@@ -11,18 +11,42 @@
     border-radius: 10px;
     border: 1px solid black; 
     width: 70%; 
-    height: 120px; 
+    height: auto; 
+    margin: 10px; 
 }
 .prompt-card-title-holder{
-    border: 1px solid red; 
+
+}
+.prompt-card-title{
     padding: 2px;
+    font-size: 25px;
 }
 .prompt-card-content-holder{
-    border: 1px solid blue; 
-    padding: 2px; 
+    padding: 2px;
 }
 .continue-link{
-    border: 1px solid black; 
-    float: right;
+    display: flex; 
+    justify-content: flex-end; 
+}
+
+/* Prompt Create */
+
+.prompt-create-edit-container{
+    display: flex; 
+    flex-direction: column; 
+}
+
+.create-input{
     margin: 10px;
+    width: 50%; 
+}
+
+.create-textarea{
+    margin: 10px; 
+    width: 70%; 
+}
+
+.create-button{
+    width:30%; 
+    margin: 10px; 
 }

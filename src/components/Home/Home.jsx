@@ -34,7 +34,7 @@ const Home = () => {
 
   return togglemodal ? (
     <div>
-      <div onClick={setTogglemodal = !togglemodal}>toggle off</div>
+      {/* <div onClick={setTogglemodal = !togglemodal}>toggle off</div> */}
       Home component on
       {/* Mobile First */}
       <Header />
