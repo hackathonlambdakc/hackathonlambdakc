@@ -20,7 +20,7 @@ const PromptCard = ({ prompts }) => {
             <section className="prompt-card-content-holder">
                 <p className="prompt-card-content">{prompt.response}</p>
                 <section className="continue-sec">
-                <p onClick={modalpopup} className="continue-link">Continue Reading...</p>
+                    <p onClick={modalpopup} className="continue-link">Continue Reading...</p>
                 </section>
             </section>
         </div>
