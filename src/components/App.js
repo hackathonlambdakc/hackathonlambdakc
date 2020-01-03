@@ -26,8 +26,6 @@ function App() {
           <Switch>
             
             <Route path="/about" exact render={props => <About {...props} />} />
-            
-            <Route path="/about" exact render={props => <About {...props} />} />
 
             <Route path="/dash" exact render={props => <Dashboard {...props} />} />
 
