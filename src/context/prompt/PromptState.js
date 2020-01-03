@@ -94,8 +94,8 @@ const PromptState = props => {
   const filterPrompts = text => {
     dispatch({ type: FILTER_PROMPTS, payload: text });
   };
-  const setCurrent = contact => {
-    dispatch({ type: SET_CURRENT, payload: contact });
+  const setCurrent = prompt => {
+    dispatch({ type: SET_CURRENT, payload: prompt });
   };
   const removeAlerts = () => {
     dispatch({type: REMOVE_ALERT})

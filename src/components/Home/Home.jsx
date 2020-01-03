@@ -24,7 +24,7 @@ const Home = () => {
 
   const [prompts, setPrompts] = useState([]);
   useEffect(() => {
-    axios.get("http://localhost:5000/all")
+    axios.get("https://writeinspyre.herokuapp.com/all")
       .then(res => {
         setPrompts(res.data)
         console.log(res.data)
