@@ -1,0 +1,13 @@
+.dash-top-page{
+    display: flex;
+    justify-content: center; 
+    align-content: center; 
+    padding: 45px; 
+}
+
+.my-prompts{
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    flex-direction: column;
+}

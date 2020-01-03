@@ -10,7 +10,7 @@ const PromptCard = () => {
             <section className="prompt-card-content-holder">
                 <p className="prompt-content"></p>
             </section>
-            <Link>Continue Reading...</Link>
+            <Link className="continue-link">Continue Reading...</Link>
         </div>
     )
 }

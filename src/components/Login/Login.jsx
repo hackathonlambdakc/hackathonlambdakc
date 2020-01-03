@@ -12,7 +12,7 @@ const Login = () => {
   const {loginLoading, setLoginLoading} = useState(false)
 
   const handleChange = e => {
-    setLoginData({...loginData,[e.target.name]:e.target.value});
+    // setLoginData({...loginData,[e.target.name]:e.target.value});
   };
 
   const handleSubmit = e => {
