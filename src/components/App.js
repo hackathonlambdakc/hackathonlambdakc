@@ -21,14 +21,7 @@ import ViewPrompt from "../components/ViewPrompt/ViewPrompt";
 // import Misc from "../components/Misc/";
 
 function App() {
-  const [data, setData] = useState([]);
-  useEffect(() => {
-    axios.get("http://localhost:5000/all")
-      .then(res => {
-        setData(res.data)
-        console.log(res.data)
-      });
-  }, []);
+
   return (
     <InspyreContextProvider>
       <div className="container">
@@ -67,7 +60,7 @@ function App() {
             <Route
               path="/createprompt"
               exact
-              render={props => <CreatePrompt {...props} promptData={data} />}
+              render={props => <CreatePrompt {...props}/>}
             />
 
             <Route component={NotFound404} />

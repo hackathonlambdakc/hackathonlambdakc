@@ -20,6 +20,7 @@
     height: auto; 
     margin: 10px; 
     border-left: 15px solid #55B24D; 
+    background: white; 
 }
 .toggle-prompt-view{
     position: absolute; 
