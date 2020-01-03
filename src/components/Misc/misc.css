@@ -3,30 +3,59 @@
     display: flex; 
     flex-direction: row; 
     justify-content: space-between;
-    align-items: center
+    align-items: center;
+    width: 100%;  
+}
+
+.dash-link{
+    text-decoration: none; 
+    color: black;
 }
 
 /* PromptCard */
 .prompt-card-container{
     border-radius: 10px;
     border: 1px solid black; 
-    width: 70%; 
+    width: 75%; 
     height: auto; 
     margin: 10px; 
+    border-left: 15px solid #55B24D; 
 }
-.prompt-card-title-holder{
-
+.toggle-prompt-view{
+    position: absolute; 
+    z-index: 1;
+    left: 75%; 
+    top: 30%; 
+    padding: 10px; 
 }
 .prompt-card-title{
     padding: 2px;
-    font-size: 25px;
+    font-size: 20px;
+    margin-top: 5px;
+    margin-left: 10px;
 }
 .prompt-card-content-holder{
     padding: 2px;
 }
-.continue-link{
+.prompt-card-content{
+    margin-left: 10px;
+}
+.continue-sec{
     display: flex; 
     justify-content: flex-end; 
+    margin:5px;
+}
+.continue-link{ 
+    border-radius: 10px;
+    width: 125px;
+    font-size: 12px; 
+    padding: 3px; 
+    border: 2px solid #55B24D;
+    color: #55B24D; 
+    margin: 0; 
+}
+.modal-background{
+    background: black; 
 }
 
 /* Prompt Create */
@@ -49,4 +78,45 @@
 .create-button{
     width:30%; 
     margin: 10px; 
+    border-radius: 5px; 
+    background: #55B24D; 
+    text-decoration: none; 
+    border: none; 
+    color: white; 
+}
+
+/* Prompt View */
+.prompt-view-container{
+    border-radius: 10px;
+    border: 1px solid black; 
+    width: 90%; 
+    height: auto; 
+    position: absolute; 
+    right: 5%;
+    top: 30%;  
+    background: white;
+}
+.modal-overlay{
+    position: absolute;
+    top:0; 
+    left:0; 
+    height: 100%;
+    width:100%; 
+    background: rgba(0,0,0,0.7);
+    z-index:-10; 
+}
+
+.prompt-view-content-container{
+    display: flex; 
+    justify-content: center; 
+    flex-direction: column;
+    align-items: center;  
+}
+
+.prompt-title{
+    font-size: 25px;
+}
+
+.prompt-content{
+    padding: 15px;
 }
