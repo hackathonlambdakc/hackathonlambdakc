@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useFetch } from "react";
 import PromptCard from "../Misc/PromptCard";
 import Header from "../Misc/Header";
-
+import axios from 'axios';
 //modal
 import Promptview from "../Misc/PromptView";
 import "./home.css";
@@ -21,18 +21,20 @@ import "./home.css";
 }
 
 const Home = () => {
-  const randomPrompts = [
-    { title: "How was your day?", response: "pretty damn good. " },
-    { title: "Where is my diet dr. pepper?", response: "wish i knew" },
-    { title: "how late will we be up?", response: "sleep is not a thing. " },
-    { title: "what do you think of redux", response: "redux can suck it..." }
-  ];
 
-  return(
+  const [prompts, setPrompts] = useState([]);
+  useEffect(() => {
+    axios.get("https://writeinspyre.herokuapp.com/all")
+      .then(res => {
+        setPrompts(res.data)
+        console.log(res.data)
+      });
+  }, []);
+  return (
     <div>
       <Header />
       <div className="community-prompts">
-        {randomPrompts.map(prompt => (
+        {prompts.map(prompt => (
           <PromptCard prompt={prompt} />
         ))}
       </div>
