@@ -35,7 +35,7 @@ const Home = () => {
       <Header />
       <div className="community-prompts">
         {prompts.map(prompt => (
-          <PromptCard prompt={prompt} />
+          <PromptCard prompt={prompt} key={prompt.id}/>
         ))}
       </div>
     </div>
