@@ -8,7 +8,7 @@ import "./dashboard.css";
 const Dashboard = () => {
   const [userPrompts, setUserPrompts] = useState([]); 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/prompts")
+    axios.get("https://writeinspyre.herokuapp.com/api/prompts")
   })
   return (
     <div className="dash-page">
