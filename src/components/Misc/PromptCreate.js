@@ -1,8 +1,8 @@
 import React from 'react';
-import {useState, useEffect} from 'react'; 
-import {useFetch} from '../Misc/Hooks'; 
+// import {useState, useEffect} from 'react'; 
+// import {useFetch} from '../Misc/Hooks'; 
 
-import axios from  'axios'; 
+// import axios from  'axios'; 
 import './misc.css';
 
 const PromptCreate = () => {
