@@ -16,13 +16,11 @@ import Login from "../components/Login/Login";
 import NotFound404 from "../components/NotFound404/Notfound";
 import Register from "../components/Register/Register";
 import ViewPrompt from "../components/ViewPrompt/ViewPrompt";
-import {useFetch} from '../components/Misc/Hooks'; 
 
 //misc components
 // import Misc from "../components/Misc/";
 
 function App() {
-  const [data, loading] = useFetch("http://localhost:5000/all");
 
   return (
     <InspyreContextProvider>
@@ -62,7 +60,7 @@ function App() {
             <Route
               path="/createprompt"
               exact
-              render={props => <CreatePrompt {...props} promptData={data}/>}
+              render={props => <CreatePrompt {...props}/>}
             />
 
             <Route component={NotFound404} />
