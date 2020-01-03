@@ -1,22 +1,51 @@
 import React from 'react';
-import './misc.css'; 
+import {useState, useEffect} from 'react'; 
+import axios from  'axios'; 
+import './misc.css';
 
-const PromptCreate = () => {
-
-    const handleChange = e => {
-        e.preventDefault(); 
+const PromptCreate = props => {
+    const blankPrompt = { title: '', response: '' };
+    const promptArr = props.promptData;
+    const [storage, setStorage] = useState(promptArr);
+    const [newPrompt, setNewPrompt] = useState(blankPrompt);
+    const handleChange = event => {
+        const { name, value } = event.target;
+        setNewPrompt({ ...newPrompt, [name]: value })
     };
 
-    const handleSubmit = e => {
+
+    const addNewPrompt = e => {
         e.preventDefault();
-    }; 
-    return (
-        <div className="prompt-create-edit-container">
+        axios.post("http://localhost:5000/api/prompts", newPrompt)
+            .then(res => {
+                setNewPrompt({
+                    title: '',
+                    response: ''
+                })
+                    .catch(res => {
+                        if (res.data === '') {
+                            alert("You need to fill in title and response");
+                            res.status(500)
+                        }
+                    })
+                    .then(res => {
+                        const status = res.data.status;
+                        if (status === 200) {
+                            const newPrompt = storage.push(newPrompt);
+                            setStorage(...storage, newPrompt)
+                        }
+                    })
+            })
+            .catch(err => console.log(err));
+        };
+        return (
+            <div className="prompt-create-edit-container">
                 <input
                     type="text"
                     className="create-input"
                     placeholder="What is on your mind"
                     onChange={handleChange}
+                    value={newPrompt.title}
                     required
                 />
                 <textarea
@@ -24,10 +53,12 @@ const PromptCreate = () => {
                     placeholder="Start writing..."
                     className="create-textarea"
                     onChange={handleChange}
+                    value={newPrompt.response}
                     required
                 />
-            <button onSubmit={handleSubmit} className="create-button">Finish</button>
-        </div>
-    )
-}
-export default PromptCreate
+                <button onClick={addNewPrompt} className="create-button">Finish</button>
+            </div>
+        )
+    };
+
+    export default PromptCreate
