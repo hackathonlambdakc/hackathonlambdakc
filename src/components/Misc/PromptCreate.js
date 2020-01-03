@@ -1,15 +1,17 @@
 import React from 'react';
-
+import './misc.css'; 
 
 const PromptCreate = () => {
 
-    const handleChange = e => {};
+    const handleChange = e => {
+        e.preventDefault(); 
+    };
 
-    const handleSubmit = e => {}; 
-
+    const handleSubmit = e => {
+        e.preventDefault();
+    }; 
     return (
         <div className="prompt-create-edit-container">
-            <section>
                 <input
                     type="text"
                     className="create-input"
@@ -17,8 +19,6 @@ const PromptCreate = () => {
                     onChange={handleChange}
                     required
                 />
-            </section>
-            <div className="prompt-content">
                 <textarea
                     type="text"
                     placeholder="Start writing..."
@@ -26,7 +26,7 @@ const PromptCreate = () => {
                     onChange={handleChange}
                     required
                 />
-            </div>
+            <button onSubmit={handleSubmit} className="create-button">Finish</button>
         </div>
     )
 }

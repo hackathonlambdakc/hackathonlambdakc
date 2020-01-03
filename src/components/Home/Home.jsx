@@ -28,19 +28,8 @@ const Home = () => {
     { title: "what do you think of redux", response: "redux can suck it..." }
   ];
 
-  const [togglemodal, setTogglemodal] = useState(true);
-  const [modalPic, setModalPic] = useState(null);
-
-  const modalpopup = () => {
-    setTogglemodal(!togglemodal);
-    // setModalPic(prompt);
-  };
-
-  return togglemodal ? (
+  return(
     <div>
-      <div onClick={modalpopup}>toggle off</div>
-      Home component on
-      {/* Mobile First */}
       <Header />
       <div className="community-prompts">
         {randomPrompts.map(prompt => (
@@ -48,17 +37,7 @@ const Home = () => {
         ))}
       </div>
     </div>
-  ) : (
-    <div>
-      <div onClick={modalpopup}>toggle on</div>
-      Home component off
-      {/* Mobile First */}
-      <Header />
-      <div>
-        <Promptview modalpic={modalPic} />
-      </div>
-    </div>
-  );
+  )
 };
 
 export default Home;
