@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Header from '../Misc/Header';
 import Promptview from './PromptView';
 
-const PromptCard = ({ prompts }) => {
+const PromptCard = ({ prompt }) => {
     const [togglemodal, setTogglemodal] = useState(true);
     const [modalPic, setModalPic] = useState(null);
 
@@ -28,7 +28,7 @@ const PromptCard = ({ prompts }) => {
             <div>
                 <div>
                     <div className="toggle-prompt-view" onClick={modalpopup}>close</div>
-                    <Promptview modalpic={modalPic} />
+                    <Promptview prompt={prompt} modalpic={modalPic} />
                 </div>
             </div>
         )

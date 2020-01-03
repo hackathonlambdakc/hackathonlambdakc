@@ -5,6 +5,8 @@ import "./app.css";
 //context
 import InspyreContextProvider from "../context/InspyreContextProvider";
 //routes
+import {useState, useEffect} from 'react'; 
+import axios from  'axios'; 
 import About from "../components/About/About";
 import CreatePrompt from "../components/CreatePrompt/CreatePrompt";
 import Dashboard from "../components/Dashboard/Dashboard";
@@ -19,6 +21,14 @@ import ViewPrompt from "../components/ViewPrompt/ViewPrompt";
 // import Misc from "../components/Misc/";
 
 function App() {
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    axios.get("http://localhost:5000/all")
+      .then(res => {
+        setData(res.data)
+        console.log(res.data)
+      });
+  }, []);
   return (
     <InspyreContextProvider>
       <div className="container">
@@ -57,7 +67,7 @@ function App() {
             <Route
               path="/createprompt"
               exact
-              render={props => <CreatePrompt {...props} />}
+              render={props => <CreatePrompt {...props} promptData={data} />}
             />
 
             <Route component={NotFound404} />
