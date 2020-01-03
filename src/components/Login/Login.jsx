@@ -1,25 +1,34 @@
-import React from "react";
+import React, {useState} from "react";
+import LoginNav from './LoginNav'
 import Header from '../Misc/Header'
 import SocialMediaFooter from "../Misc/SocialMediaFooter";
 
 const Login = () => {
-  const handleChange = e => {};
 
-  const handleSubmit = e => {};
+  const [loginEmail, setLoginEmail] = useState('')
+  const [loginPw, setLoginPw] = useState('')
+
+    //loading screen
+  const {loginLoading, setLoginLoading} = useState(false)
+
+  const handleChange = e => {
+    setLoginData({...loginData,[e.target.name]:e.target.value});
+  };
+
+  const handleSubmit = e => {
+    e.preventDefault();
+
+// Auth handler
+  };
 
   return (
     //nav
     <div className="login-container">
-      <nav>
-        <button className="nav-btn">Docs</button>
-      </nav>
-      <nav>
-        <button className="nav-btn">About</button>
-        <button className="nav-btn">Create Account</button>
-      </nav>
+      <LoginNav/>
       <Header/>
-      <form action="" className="login-form">
-        <input type="text" className="login-input" />
+      {/* login form */}
+      <form action="" className="login-form" onSubmit={handleSubmit}>
+        <input type="text" className="login-input" onChange={handleChange}/>
         <input type="text" className="login-input" />
         <button className="login-btn">Login</button>
       </form>
