@@ -1,18 +1,17 @@
-import React from 'react'
-import Header from '../Misc/Header'
 
+import React from 'react';
+import './about.css'
 const About = () => {
   return (
-    <div>
-      <Header/>
-      <div className="mission">
-        <div className="mission-header">
-          <h2>Mission Statement</h2>
-        </div>
-        <div className="mission-blurb">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto maxime optio saepe, consequuntur, dicta tempore sapiente hic vel vero ullam odit? Magni consectetur excepturi totam reiciendis sequi nam, magnam laborum. Lorem ipsum dolor sit amet consectetur adipisicing elit. In accusantium tenetur unde expedita, culpa pariatur dolore rem, aut explicabo voluptas numquam, asperiores voluptates suscipit minus vero! Molestiae excepturi eos nihil?
-        </div>
-      </div>
+    <div className="about-page">
+      <section className="about-header">
+        logo
+        <h1>WritingInspyre</h1>
+      </section>
+      <section className="about-content">
+      <h2>What we are about!</h2>
+      <p>Mission statement</p>
+        </section>
     </div>
   )
 }

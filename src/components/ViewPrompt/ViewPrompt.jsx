@@ -5,7 +5,6 @@ import PromptView from '../Misc/PromptView';
 const ViewPrompt = () => {
   return (
     <div>
-      View prompt component
       <Header />
       <PromptView /> 
     </div>
