@@ -6,6 +6,7 @@ import './misc.css';
 const PromptCreate = props => {
     const blankPrompt = { title: '', response: '' };
     const promptArr = props.promptData;
+    console.log("promptArr")
     const [storage, setStorage] = useState(promptArr);
     const [newPrompt, setNewPrompt] = useState(blankPrompt);
     const handleChange = event => {
@@ -25,10 +26,11 @@ const PromptCreate = props => {
                     .catch(res => {
                         if (res.data === '') {
                             alert("You need to fill in title and response");
-                            res.status(500)
+                            res.status(400)
                         }
                     })
                     .then(res => {
+                        console.log(newPrompt.title); 
                         const status = res.data.status;
                         if (status === 200) {
                             const newPrompt = storage.push(newPrompt);
@@ -41,7 +43,6 @@ const PromptCreate = props => {
         return (
             <div className="prompt-create-edit-container">
                 <input
-                    type="text"
                     className="create-input"
                     placeholder="What is on your mind"
                     onChange={handleChange}
@@ -49,7 +50,6 @@ const PromptCreate = props => {
                     required
                 />
                 <textarea
-                    type="text"
                     placeholder="Start writing..."
                     className="create-textarea"
                     onChange={handleChange}
