@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import LoginNav from './LoginNav'
 import Header from '../Misc/Header'
 import SocialMediaFooter from "../Misc/SocialMediaFooter";
+import About from '../About/About'
 
 const Login = () => {
 
@@ -17,9 +18,9 @@ const Login = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-
 // Auth handler
   };
+
 
   return (
     //nav
@@ -33,6 +34,7 @@ const Login = () => {
         <button className="login-btn">Login</button>
       </form>
       <SocialMediaFooter />
+      <About/>
     </div>
   );
 };

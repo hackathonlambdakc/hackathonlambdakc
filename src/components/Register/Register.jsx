@@ -1,12 +1,25 @@
-import React from "react";
+import React, {useState} from "react";
 import Header from "../Misc/Header";
 import SocialMediaFooter from "../Misc/SocialMediaFooter";
 import {Link} from 'react-router-dom'
 
 const Register = () => {
-  const handleChange = e => {};
 
-  const handleSubmit = e => {};
+  const [RegEmail, setRegEmail] = useState('')
+  const [regPw, setRegPw] = useState('')
+
+    //loading screen
+  const {RegLoading, setRegLoading} = useState(false)
+
+  const handleChange = e => {
+    // setLoginData({...loginData,[e.target.name]:e.target.value});
+  };
+
+  const handleSubmit = e => {
+    e.preventDefault();
+// Auth handler
+  };
+
 
   return (
     <div>
