@@ -1,65 +1,65 @@
-import React from 'react';
-import {useState, useEffect} from 'react'; 
-import {useFetch} from '../Misc/Hooks'; 
-
-import axios from  'axios'; 
+import React, {useState, useContext, useEffect} from 'react';
+import PromptContext from '../../context/prompt/promptContext'
 import './misc.css';
 
 const PromptCreate = () => {
-    // const blankPrompt = { title: '', response: '' };
-    // const [data] = useFetch("http://localhost:5000/all");
-    // console.log(data)
-    // const [storage, setStorage] = useState(data);
-    // console.log(storage)
-    // const [newPrompt, setNewPrompt] = useState(blankPrompt);
-    // const handleChange = event => {
-    //     const { name, value } = event.target;
-    //     setNewPrompt({ ...newPrompt, [name]: value })
-    // };
+    const promptContext = useContext(PromptContext);
+    const {addPrompts, updatePrompt, clearCurrent, current} = promptContext; 
+    const [prompt, setPrompt] = useState({
+        title: '',
+        response: ''
+    });
 
+    const {title, response} = prompt;
 
-    // const addNewPrompt = e => {
-    //     e.preventDefault();
-    //     axios.post("http://localhost:5000/api/prompts", newPrompt)
-    //         .then(res => {
-    //             setNewPrompt({
-    //                 title: '',
-    //                 response: ''
-    //             })
-    //                 .catch(res => {
-    //                     if (res.data === '') {
-    //                         alert("You need to fill in title and response");
-    //                         res.status(400)
-    //                     }
-    //                 })
-    //                 .then(res => {
-    //                     console.log(newPrompt.title); 
-    //                     const status = res.data.status;
-    //                     if (status === 200) {
-    //                         const newPrompt = storage.push(newPrompt);
-    //                         setStorage(...storage, newPrompt)
-    //                     }
-    //                 })
-    //         })
-    //         .catch(err => console.log(err));
-    //     };
+    const onChange = e => {
+        setPrompt({...prompt, [e.target.name]: e.target.value})
+    }
+
+    const onSubmit = e => {
+        e.preventDefault();
+        if(current === null){
+            addPrompts(prompt);
+        } else {
+            updatePrompt(prompt);
+        }
+        clearAll();
+    };
+
+    const clearAll = () => {
+        clearCurrent(); 
+    }
+
+    useEffect(() => {
+        if (current !== null){
+            setPrompt(current);
+        } else {
+            setPrompt({
+                title: '',
+                response: ''
+            });
+        }
+    }, [promptContext, current]);
+
         return (
             <div className="prompt-create-edit-container">
+            <form onSubmit={onSubmit}>
                 <input
                     className="create-input"
                     placeholder="What is on your mind"
-                    // onChange={handleChange}
-                    // value={newPrompt.title}
+                    onChange={onChange}
+                    value={title}
                     required
                 />
                 <textarea
                     placeholder="Start writing..."
                     className="create-textarea"
-                    // onChange={handleChange}
-                    // value={newPrompt.response}
+                    onChange={onChange}
+                    value={response}
                     required
                 />
-                <button className="create-button">Finish</button>
+                <button onClick={clearAll} className="create-button">Finish</button>
+                </form>
             </div>
         )
     };
