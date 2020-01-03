@@ -1,0 +1,28 @@
+/* //Header */
+.header{
+    display: flex; 
+    flex-direction: row; 
+    justify-content: space-between;
+    align-items: center
+}
+
+/* PromptCard */
+.prompt-card-container{
+    border-radius: 10px;
+    border: 1px solid black; 
+    width: 70%; 
+    height: 120px; 
+}
+.prompt-card-title-holder{
+    border: 1px solid red; 
+    padding: 2px;
+}
+.prompt-card-content-holder{
+    border: 1px solid blue; 
+    padding: 2px; 
+}
+.continue-link{
+    border: 1px solid black; 
+    float: right;
+    margin: 10px;
+}

@@ -1,13 +1,12 @@
 import React from 'react'
 import Header from '../Misc/Header';
-import PromptCreateEdit from '../Misc/PromptCreateEdit'; 
+import PromptCreate from '../Misc/PromptCreate'; 
 
 const CreatePrompt = () => {
   return (
     <div>
-      Create Prompt Components
       <Header />
-      <PromptCreateEdit />
+      <PromptCreate />
     </div>
   )
 }
