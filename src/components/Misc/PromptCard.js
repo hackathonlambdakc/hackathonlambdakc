@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Header from '../Misc/Header';
 import Promptview from './PromptView';
 
-const PromptCard = ({ prompt }) => {
+const PromptCard = ({ prompts }) => {
     const [togglemodal, setTogglemodal] = useState(true);
     const [modalPic, setModalPic] = useState(null);
 
