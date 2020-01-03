@@ -22,14 +22,14 @@ import "./home.css";
 
 const Home = () => {
 
-  const [prompts, setPrompts] = useState([]); 
+  const [prompts, setPrompts] = useState([]);
   useEffect(() => {
     axios.get("https://writeinspyre.herokuapp.com/all")
-    .then(res => {
-      setPrompts(res.data)
-      console.log(res.data)
-    });
-  }, []); 
+      .then(res => {
+        setPrompts(res.data)
+        console.log(res.data)
+      });
+  }, []);
   return (
     <div>
       <Header />
