@@ -1,5 +1,9 @@
 import React, {useState, useContext, useEffect} from 'react';
-import PromptContext from '../../context/prompt/promptContext'
+import PromptContext from '../../context/prompt/promptContext';
+// import {useState, useEffect} from 'react'; 
+// import {useFetch} from '../Misc/Hooks'; 
+
+// import axios from  'axios'; 
 import './misc.css';
 
 const PromptCreate = () => {

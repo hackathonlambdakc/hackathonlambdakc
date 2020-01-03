@@ -1,15 +1,15 @@
 import React from 'react'
 import Header from '../Misc/Header';
 import PromptCard from '../Misc/PromptCard';
-import { useState, useEffect } from 'react';
-import axios from 'react';
+// import { useState, useEffect } from 'react';
+// import axios from 'react';
 import "./dashboard.css";
 
 const Dashboard = () => {
-  const [userPrompts, setUserPrompts] = useState([]);
-  useEffect(() => {
-    axios.get("https://writeinspyre.herokuapp.com/api/prompts")
-  })
+  // const [userPrompts, setUserPrompts] = useState([]);
+  // useEffect(() => {
+  //   axios.get("https://writeinspyre.herokuapp.com/api/prompts")
+  // })
   return (
     <div className="dash-page">
       <Header />
